@@ -1,0 +1,2 @@
+defmodule InputReader do
+end
