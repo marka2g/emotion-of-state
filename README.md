@@ -25,3 +25,8 @@ A map reduce exercise written in Elixir that parses the emotional state of The P
   - emits them to `OutputWriter`
 5. `Output Writer` "Tell the World"
   - yields data in the format of your choice
+
+> to build
+$`mix escript.build`
+> run it
+$`./emotion_of_state --file=test/input.txt`
