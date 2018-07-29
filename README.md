@@ -1,5 +1,5 @@
 # Emotion of State
-A map reduce exercise written in Elixir that parses the emotional state of The POTUS via twitter. [trump](https://github.com/marka2g/emotion_of_state/blob/master/trumpski.png)
+A map reduce exercise written in Elixir that parses the emotional state of The POTUS via twitter. ![trump](https://github.com/marka2g/emotion_of_state/blob/master/trumpski.png)
 
 ## [changelog] branch: `add-mix-and-basic-map-reduce`
 ### Basic Map Reduce Flow
