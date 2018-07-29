@@ -1,31 +1,14 @@
 defmodule EmotionOfState do
-  require InputReader
-  require Partition
-
-  def main(args) do
-    args |> parse_args |> pipeline
-  end
-
-  defp parse_args(args) do
-    {options, _, _} =
-      OptionParser.parse(
-        args,
-        switches: [file: :string]
-      )
-
-    options
-  end
-
-  defp pipeline([]) do
-  end
-
-  defp pipeline(options) do
-    partition_process_id = elem(Partition.start_link(), 1)
-    InputReader.reader("#{options[:file]}", partition_process_id)
-    forever()
-  end
-
-  defp forever do
-    forever()
+  # def main(args) do
+  def main() do
+    # hardcode for now
+    File.stream!("../test/input.txt")
+    |> Flow.from_enumerable()
+    |> Flow.flat_map(&String.split(&1, " "))
+    |> Flow.partition()
+    |> Flow.reduce(fn -> %{} end, fn word, acc ->
+      Map.update(acc, word, 1, &(&1 + 1))
+    end)
+    |> Enum.to_list()
   end
 end
